@@ -1,0 +1,33 @@
+{
+  "lastChangelogVersion": "0.76.0",
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-pro",
+  "defaultThinkingLevel": "xhigh",
+  "packages": [
+    "npm:pi-web-access",
+    "npm:pi-subagents",
+    "npm:pi-crew@latest"
+  ],
+  "hideThinkingBlock": false,
+  "terminal": {
+    "imageWidthCells": 120,
+    "showTerminalProgress": true
+  },
+  "showHardwareCursor": true,
+  "editorPaddingX": 0,
+  "autocompleteMaxVisible": 15,
+  "warnings": {
+    "anthropicExtraUsage": true
+  },
+  "treeFilterMode": "all",
+  "compaction": {
+    "enabled": true
+  },
+  "doubleEscapeAction": "tree",
+  "enableInstallTelemetry": false,
+  "quietStartup": true,
+  "collapseChangelog": true,
+  "followUpMode": "all",
+  "steeringMode": "one-at-a-time",
+  "theme": "nord"
+}
