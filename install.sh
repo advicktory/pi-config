@@ -1,13 +1,19 @@
 #!/bin/bash
-# install.sh — pi agent config (standalone)
+# install.sh — pi config (idempotent)
 set -euo pipefail
 DIR="$(cd "$(dirname "$0")" && pwd)"
 DEST="${HOME}/.dotfiles/pi-config"
 PI="${HOME}/.pi/agent"
 
 echo "🌿  pi config → ~/.pi/agent/"
+
+if [ -L "$PI/settings.json" ] && [ "$(readlink "$PI/settings.json")" = "$DEST/settings.json" ]; then
+  echo "   already installed — skipped"
+  exit 0
+fi
+
 mkdir -p "$DEST/skills" "$DEST/themes" "$DEST/prompts"
-cp "$DIR"/settings.json "$DIR"/keybindings.json "$DIR"/AGENTS.md "$DEST/"
+cp "$DIR"/settings.json "$DIR"/keybindings.json "$DIR"/AGENTS.md "$DEST/" 2>/dev/null || true
 cp -r "$DIR"/skills/* "$DEST/skills/" 2>/dev/null || true
 cp -r "$DIR"/themes/* "$DEST/themes/" 2>/dev/null || true
 cp -r "$DIR"/prompts/* "$DEST/prompts/" 2>/dev/null || true
